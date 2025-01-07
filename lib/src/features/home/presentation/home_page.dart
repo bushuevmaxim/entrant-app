@@ -50,7 +50,8 @@ class HomePageView extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 context.go(
-                                  Routes.courseWithId('123'),
+                                  Routes.courseWithId(
+                                      courses.elementAt(index).id),
                                 );
                               },
                               child: Card(

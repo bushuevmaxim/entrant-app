@@ -31,9 +31,8 @@ final GoRouter _router = GoRouter(
                   path: '${Routes.courses}/:id',
                   builder: (BuildContext context, GoRouterState state) {
                     final courseId = state.pathParameters['id']!;
-                    return DetailedCoursePage(
-                      title: courseId,
-                    );
+
+                    return DetailedCoursePage(courseId: courseId);
                   },
                 ),
               ],
