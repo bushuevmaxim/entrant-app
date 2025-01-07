@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmfi_entrant_app/src/features/home/domain/repositories/courses_repository.dart';
 import 'package:pmfi_entrant_app/src/features/home/presentation/bloc/home_bloc.dart';
+import 'package:pmfi_entrant_app/src/features/routing/routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,7 +50,7 @@ class HomePageView extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 context.go(
-                                  '/details',
+                                  Routes.courseWithId('123'),
                                 );
                               },
                               child: Card(
