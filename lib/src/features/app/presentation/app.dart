@@ -7,10 +7,14 @@ import 'package:pmfi_entrant_app/src/features/home/presentation/home_page.dart';
 import 'package:pmfi_entrant_app/src/features/map/presentation/map_page.dart';
 import 'package:pmfi_entrant_app/src/features/qa_chat/presentation/qa_chat_page.dart';
 
-class MyApp extends StatelessWidget {
-  /// Constructs a [MyApp]
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

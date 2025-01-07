@@ -1,14 +1,14 @@
 # Runs pub get
 pg:
-	flutter pub get
+	fvm flutter pub get
 
 set_up_arb_utils:
-	dart pub global activate arb_utils
+	fvm dart pub global activate arb_utils
 
 # Sorts arb files alphabetically
 sort_arb:
-	dart run arb_utils sort -i lib/l10n/app_en.arb
-	dart run arb_utils sort -i lib/l10n/app_ru.arb
+	fvm dart run arb_utils sort -i lib/l10n/app_en.arb
+	fvm dart run arb_utils sort -i lib/l10n/app_ru.arb
 
 # Spider
 spider:
@@ -16,28 +16,28 @@ spider:
 
 # Runs flutter clean
 cleanup:
-	flutter clean
+	fvm flutter clean
 
-# Makes lintmake 
+# Makes lint
 lint:
-	flutter analyze
-	dart run custom_lint
+	fvm flutter analyze
+	fvm dart run custom_lint
 
 # Codegen
 codegen:
-	dart run build_runner build --delete-conflicting-outputs
+	fvm dart run build_runner build --delete-conflicting-outputs
 
 # Codegen watch
 codegenw:
-	dart run build_runner watch --delete-conflicting-outputs
+	fvm dart run build_runner watch --delete-conflicting-outputs
 
 # Unit and widget tests
 tests:
-	flutter test
+	fvm flutter test
 
 # Update goldens
 ug:
-	flutter test --update-goldens
+	fvm flutter test --update-goldens
 
 # Runs pre-push operations
 prepush:
@@ -65,7 +65,7 @@ close_ios_simulator:
 
 # First time setup project for new developer
 kickstart:
-	use
+	fvm use
 	make set_up_arb_utils
 	make pg
 	make codegen
@@ -74,11 +74,11 @@ kickstart:
 
 # Updates splash screen with flutter_native_splash
 splash:
-	dart run flutter_native_splash:create
+	fvm dart run flutter_native_splash:create
 
 # Hard reset
 hard_reset:
-	flutter clean
+	fvm flutter clean
 	rm -rf .idea
 	rm -rf .dart_tool
-	flutter pub cache clean
+	fvm flutter pub cache clean
