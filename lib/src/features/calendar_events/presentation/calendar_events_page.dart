@@ -12,7 +12,8 @@ class CalendarEventsPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Открытие карты на весь экран')));
+            const SnackBar(content: Text('Открытие карты на весь экран')),
+          );
         },
         label: const Text('Показать расположение корпусов'),
       ),

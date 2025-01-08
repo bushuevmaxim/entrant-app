@@ -5,12 +5,14 @@ import 'package:pmfi_entrant_app/src/features/home/data/repositories/courses_rep
 import 'package:pmfi_entrant_app/src/features/home/domain/repositories/courses_repository.dart';
 
 void main() {
-  runApp(MultiRepositoryProvider(
-    providers: [
-      RepositoryProvider<ICoursesRepository>(
-        create: (context) => MockCoursesRepository(),
-      ),
-    ],
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<ICoursesRepository>(
+          create: (context) => MockCoursesRepository(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }

@@ -32,17 +32,18 @@ class DetailedCourseView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: BlocBuilder<DetailedCourseBloc, DetailedCourseState>(
-        builder: (context, state) {
-          return switch (state) {
-            Success(:final course) => Text(
-                course.name,
-              ),
-            _ => const SizedBox()
-          };
-        },
-      )),
+      appBar: AppBar(
+        title: BlocBuilder<DetailedCourseBloc, DetailedCourseState>(
+          builder: (context, state) {
+            return switch (state) {
+              Success(:final course) => Text(
+                  course.name,
+                ),
+              _ => const SizedBox()
+            };
+          },
+        ),
+      ),
       body: Center(
         child: BlocBuilder<DetailedCourseBloc, DetailedCourseState>(
           builder: (context, state) {

@@ -29,9 +29,13 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         destinations: const [
           NavigationDestination(label: 'Главная', icon: Icon(Icons.home)),
           NavigationDestination(
-              label: 'Задать вопрос', icon: Icon(Icons.question_answer)),
+            label: 'Задать вопрос',
+            icon: Icon(Icons.question_answer),
+          ),
           NavigationDestination(
-              label: 'События', icon: Icon(Icons.calendar_month)),
+            label: 'События',
+            icon: Icon(Icons.calendar_month),
+          ),
         ],
         onDestinationSelected: _goBranch,
       ),

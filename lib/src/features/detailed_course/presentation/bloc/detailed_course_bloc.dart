@@ -23,7 +23,9 @@ class DetailedCourseBloc
   }
 
   Future<void> _onStarted(
-      DetailedCourseEvent event, Emitter<DetailedCourseState> emit) async {
+    DetailedCourseEvent event,
+    Emitter<DetailedCourseState> emit,
+  ) async {
     emit(const Loading());
 
     try {
