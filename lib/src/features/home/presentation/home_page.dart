@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../routing/routes.dart';
 import '../domain/repositories/courses_repository.dart';
 import 'bloc/home_bloc.dart';
+import 'widgets/block_title.dart';
 import 'widgets/course_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,13 +43,9 @@ class HomePageView extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Text(
-                'Направления подготовки',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .copyWith(fontWeight: FontWeight.bold),
+            const SliverToBoxAdapter(
+              child: HomeBlockTitle(
+                title: 'Направления подготовки',
               ),
             ),
             SliverPadding(
@@ -76,10 +73,19 @@ class HomePageView extends StatelessWidget {
                           );
                         },
                       ),
-                    _ => const SliverToBoxAdapter(
+                    Loading() => const SliverFillRemaining(
                         child: Center(
-                          child: Center(
-                            child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                    _ => SliverFillRemaining(
+                        child: Center(
+                          child: Text(
+                            'Что-то пошло нет так...',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                    ),
                           ),
                         ),
                       )
