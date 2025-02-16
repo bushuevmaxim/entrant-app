@@ -5,8 +5,8 @@ import 'package:pmfi_entrant_app/src/features/calendar_events/presentation/calen
 import 'package:pmfi_entrant_app/src/features/detailed_course/presentation/detailed_course_page.dart';
 import 'package:pmfi_entrant_app/src/features/home/presentation/home_page.dart';
 import 'package:pmfi_entrant_app/src/features/map/presentation/map_page.dart';
-import 'package:pmfi_entrant_app/src/features/qa_chat/presentation/qa_chat_page.dart';
 
+import '../chat/presentation/screens/chat_screen.dart';
 import 'routes.dart';
 
 GoRouter router() => _router;
@@ -45,7 +45,7 @@ final GoRouter _router = GoRouter(
             GoRoute(
               path: Routes.virtualAssistant,
               builder: (BuildContext context, GoRouterState state) {
-                return const QAChatPage();
+                return const ChatPage();
               },
             ),
           ],
