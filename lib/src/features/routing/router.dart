@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmfi_entrant_app/src/features/bottom_navigation/presentation/bottom_navigation_page.dart';
 import 'package:pmfi_entrant_app/src/features/calendar_events/presentation/calendar_events_page.dart';
-import 'package:pmfi_entrant_app/src/features/detailed_course/presentation/detailed_course_page.dart';
 import 'package:pmfi_entrant_app/src/features/home/presentation/home_page.dart';
 import 'package:pmfi_entrant_app/src/features/map/presentation/map_page.dart';
 
 import '../chat/presentation/screens/chat_screen.dart';
+import '../detailed_programm/presentation/detailed_programm_page.dart';
 import 'routes.dart';
 
 GoRouter router() => _router;
@@ -29,11 +29,11 @@ final GoRouter _router = GoRouter(
               },
               routes: <RouteBase>[
                 GoRoute(
-                  path: '${Routes.courses}/:id',
+                  path: '${Routes.programms}/:id',
                   builder: (BuildContext context, GoRouterState state) {
                     final courseId = state.pathParameters['id']!;
 
-                    return DetailedCoursePage(courseId: courseId);
+                    return DetailedProgrammPage(programmId: courseId);
                   },
                 ),
               ],

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'detailed_course_bloc.dart';
+part of 'detailed_programm_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$DetailedCourseEvent {
+mixin _$DetailedProgrammEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,16 +51,17 @@ mixin _$DetailedCourseEvent {
 }
 
 /// @nodoc
-abstract class $DetailedCourseEventCopyWith<$Res> {
-  factory $DetailedCourseEventCopyWith(
-          DetailedCourseEvent value, $Res Function(DetailedCourseEvent) then) =
-      _$DetailedCourseEventCopyWithImpl<$Res, DetailedCourseEvent>;
+abstract class $DetailedProgrammEventCopyWith<$Res> {
+  factory $DetailedProgrammEventCopyWith(DetailedProgrammEvent value,
+          $Res Function(DetailedProgrammEvent) then) =
+      _$DetailedProgrammEventCopyWithImpl<$Res, DetailedProgrammEvent>;
 }
 
 /// @nodoc
-class _$DetailedCourseEventCopyWithImpl<$Res, $Val extends DetailedCourseEvent>
-    implements $DetailedCourseEventCopyWith<$Res> {
-  _$DetailedCourseEventCopyWithImpl(this._value, this._then);
+class _$DetailedProgrammEventCopyWithImpl<$Res,
+        $Val extends DetailedProgrammEvent>
+    implements $DetailedProgrammEventCopyWith<$Res> {
+  _$DetailedProgrammEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,7 +78,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$DetailedCourseEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$DetailedProgrammEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -91,7 +92,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'DetailedCourseEvent.started()';
+    return 'DetailedProgrammEvent.started()';
   }
 
   @override
@@ -160,17 +161,17 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements DetailedCourseEvent {
+abstract class _Started implements DetailedProgrammEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-mixin _$DetailedCourseState {
+mixin _$DetailedProgrammState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Course course) success,
+    required TResult Function(Programm programm) success,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -178,7 +179,7 @@ mixin _$DetailedCourseState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Course course)? success,
+    TResult? Function(Programm programm)? success,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -186,7 +187,7 @@ mixin _$DetailedCourseState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Course course)? success,
+    TResult Function(Programm programm)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -219,16 +220,17 @@ mixin _$DetailedCourseState {
 }
 
 /// @nodoc
-abstract class $DetailedCourseStateCopyWith<$Res> {
-  factory $DetailedCourseStateCopyWith(
-          DetailedCourseState value, $Res Function(DetailedCourseState) then) =
-      _$DetailedCourseStateCopyWithImpl<$Res, DetailedCourseState>;
+abstract class $DetailedProgrammStateCopyWith<$Res> {
+  factory $DetailedProgrammStateCopyWith(DetailedProgrammState value,
+          $Res Function(DetailedProgrammState) then) =
+      _$DetailedProgrammStateCopyWithImpl<$Res, DetailedProgrammState>;
 }
 
 /// @nodoc
-class _$DetailedCourseStateCopyWithImpl<$Res, $Val extends DetailedCourseState>
-    implements $DetailedCourseStateCopyWith<$Res> {
-  _$DetailedCourseStateCopyWithImpl(this._value, this._then);
+class _$DetailedProgrammStateCopyWithImpl<$Res,
+        $Val extends DetailedProgrammState>
+    implements $DetailedProgrammStateCopyWith<$Res> {
+  _$DetailedProgrammStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -245,7 +247,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$DetailedCourseStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$DetailedProgrammStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -259,7 +261,7 @@ class _$InitialImpl implements Initial {
 
   @override
   String toString() {
-    return 'DetailedCourseState.initial()';
+    return 'DetailedProgrammState.initial()';
   }
 
   @override
@@ -276,7 +278,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Course course) success,
+    required TResult Function(Programm programm) success,
     required TResult Function() failure,
   }) {
     return initial();
@@ -287,7 +289,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Course course)? success,
+    TResult? Function(Programm programm)? success,
     TResult? Function()? failure,
   }) {
     return initial?.call();
@@ -298,7 +300,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Course course)? success,
+    TResult Function(Programm programm)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -346,7 +348,7 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements DetailedCourseState {
+abstract class Initial implements DetailedProgrammState {
   const factory Initial() = _$InitialImpl;
 }
 
@@ -359,7 +361,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$DetailedCourseStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$DetailedProgrammStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -373,7 +375,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'DetailedCourseState.loading()';
+    return 'DetailedProgrammState.loading()';
   }
 
   @override
@@ -390,7 +392,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Course course) success,
+    required TResult Function(Programm programm) success,
     required TResult Function() failure,
   }) {
     return loading();
@@ -401,7 +403,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Course course)? success,
+    TResult? Function(Programm programm)? success,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -412,7 +414,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Course course)? success,
+    TResult Function(Programm programm)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -460,7 +462,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements DetailedCourseState {
+abstract class Loading implements DetailedProgrammState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -470,14 +472,14 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Course course});
+  $Res call({Programm programm});
 
-  $CourseCopyWith<$Res> get course;
+  $ProgrammCopyWith<$Res> get programm;
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$DetailedCourseStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$DetailedProgrammStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -486,21 +488,21 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? course = null,
+    Object? programm = null,
   }) {
     return _then(_$SuccessImpl(
-      course: null == course
-          ? _value.course
-          : course // ignore: cast_nullable_to_non_nullable
-              as Course,
+      programm: null == programm
+          ? _value.programm
+          : programm // ignore: cast_nullable_to_non_nullable
+              as Programm,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CourseCopyWith<$Res> get course {
-    return $CourseCopyWith<$Res>(_value.course, (value) {
-      return _then(_value.copyWith(course: value));
+  $ProgrammCopyWith<$Res> get programm {
+    return $ProgrammCopyWith<$Res>(_value.programm, (value) {
+      return _then(_value.copyWith(programm: value));
     });
   }
 }
@@ -508,14 +510,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl({required this.course});
+  const _$SuccessImpl({required this.programm});
 
   @override
-  final Course course;
+  final Programm programm;
 
   @override
   String toString() {
-    return 'DetailedCourseState.success(course: $course)';
+    return 'DetailedProgrammState.success(programm: $programm)';
   }
 
   @override
@@ -523,11 +525,12 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.course, course) || other.course == course));
+            (identical(other.programm, programm) ||
+                other.programm == programm));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, course);
+  int get hashCode => Object.hash(runtimeType, programm);
 
   @JsonKey(ignore: true)
   @override
@@ -540,10 +543,10 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Course course) success,
+    required TResult Function(Programm programm) success,
     required TResult Function() failure,
   }) {
-    return success(course);
+    return success(programm);
   }
 
   @override
@@ -551,10 +554,10 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Course course)? success,
+    TResult? Function(Programm programm)? success,
     TResult? Function()? failure,
   }) {
-    return success?.call(course);
+    return success?.call(programm);
   }
 
   @override
@@ -562,12 +565,12 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Course course)? success,
+    TResult Function(Programm programm)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(course);
+      return success(programm);
     }
     return orElse();
   }
@@ -610,10 +613,10 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements DetailedCourseState {
-  const factory Success({required final Course course}) = _$SuccessImpl;
+abstract class Success implements DetailedProgrammState {
+  const factory Success({required final Programm programm}) = _$SuccessImpl;
 
-  Course get course;
+  Programm get programm;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -628,7 +631,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<$Res>
-    extends _$DetailedCourseStateCopyWithImpl<$Res, _$FailureImpl>
+    extends _$DetailedProgrammStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
@@ -642,7 +645,7 @@ class _$FailureImpl implements Failure {
 
   @override
   String toString() {
-    return 'DetailedCourseState.failure()';
+    return 'DetailedProgrammState.failure()';
   }
 
   @override
@@ -659,7 +662,7 @@ class _$FailureImpl implements Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Course course) success,
+    required TResult Function(Programm programm) success,
     required TResult Function() failure,
   }) {
     return failure();
@@ -670,7 +673,7 @@ class _$FailureImpl implements Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Course course)? success,
+    TResult? Function(Programm programm)? success,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -681,7 +684,7 @@ class _$FailureImpl implements Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Course course)? success,
+    TResult Function(Programm programm)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -729,6 +732,6 @@ class _$FailureImpl implements Failure {
   }
 }
 
-abstract class Failure implements DetailedCourseState {
+abstract class Failure implements DetailedProgrammState {
   const factory Failure() = _$FailureImpl;
 }

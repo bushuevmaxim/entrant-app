@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/course.dart';
+import '../../domain/entities/programm.dart';
 
-class CourseCard extends StatelessWidget {
+class ProgrammCard extends StatelessWidget {
   final VoidCallback? onTap;
 
-  final Course course;
+  final Programm programm;
 
-  const CourseCard({
+  const ProgrammCard({
     super.key,
     this.onTap,
-    required this.course,
+    required this.programm,
   });
 
   @override
@@ -51,11 +51,11 @@ class CourseCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      course.code,
+                      programm.code,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Text(
-                      course.name,
+                      programm.name,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).colorScheme.secondary,
@@ -81,7 +81,7 @@ class CourseCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsetsDirectional.all(8.0),
                     child: Text(
-                      course.formEducation,
+                      programm.educationLevel,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).cardColor,

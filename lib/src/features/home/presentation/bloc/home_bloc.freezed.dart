@@ -169,7 +169,7 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Course> courses) success,
+    required TResult Function(List<Programm> programms) success,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -177,7 +177,7 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Course> courses)? success,
+    TResult? Function(List<Programm> programms)? success,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -185,7 +185,7 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Course> courses)? success,
+    TResult Function(List<Programm> programms)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -274,7 +274,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Course> courses) success,
+    required TResult Function(List<Programm> programms) success,
     required TResult Function() failure,
   }) {
     return initial();
@@ -285,7 +285,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Course> courses)? success,
+    TResult? Function(List<Programm> programms)? success,
     TResult? Function()? failure,
   }) {
     return initial?.call();
@@ -296,7 +296,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Course> courses)? success,
+    TResult Function(List<Programm> programms)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -388,7 +388,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Course> courses) success,
+    required TResult Function(List<Programm> programms) success,
     required TResult Function() failure,
   }) {
     return loading();
@@ -399,7 +399,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Course> courses)? success,
+    TResult? Function(List<Programm> programms)? success,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -410,7 +410,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Course> courses)? success,
+    TResult Function(List<Programm> programms)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -468,7 +468,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Course> courses});
+  $Res call({List<Programm> programms});
 }
 
 /// @nodoc
@@ -482,13 +482,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? courses = null,
+    Object? programms = null,
   }) {
     return _then(_$SuccessImpl(
-      courses: null == courses
-          ? _value._courses
-          : courses // ignore: cast_nullable_to_non_nullable
-              as List<Course>,
+      programms: null == programms
+          ? _value._programms
+          : programms // ignore: cast_nullable_to_non_nullable
+              as List<Programm>,
     ));
   }
 }
@@ -496,20 +496,20 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl({required final List<Course> courses})
-      : _courses = courses;
+  const _$SuccessImpl({required final List<Programm> programms})
+      : _programms = programms;
 
-  final List<Course> _courses;
+  final List<Programm> _programms;
   @override
-  List<Course> get courses {
-    if (_courses is EqualUnmodifiableListView) return _courses;
+  List<Programm> get programms {
+    if (_programms is EqualUnmodifiableListView) return _programms;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_courses);
+    return EqualUnmodifiableListView(_programms);
   }
 
   @override
   String toString() {
-    return 'HomeState.success(courses: $courses)';
+    return 'HomeState.success(programms: $programms)';
   }
 
   @override
@@ -517,12 +517,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality().equals(other._courses, _courses));
+            const DeepCollectionEquality()
+                .equals(other._programms, _programms));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_courses));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_programms));
 
   @JsonKey(ignore: true)
   @override
@@ -535,10 +536,10 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Course> courses) success,
+    required TResult Function(List<Programm> programms) success,
     required TResult Function() failure,
   }) {
-    return success(courses);
+    return success(programms);
   }
 
   @override
@@ -546,10 +547,10 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Course> courses)? success,
+    TResult? Function(List<Programm> programms)? success,
     TResult? Function()? failure,
   }) {
-    return success?.call(courses);
+    return success?.call(programms);
   }
 
   @override
@@ -557,12 +558,12 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Course> courses)? success,
+    TResult Function(List<Programm> programms)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(courses);
+      return success(programms);
     }
     return orElse();
   }
@@ -606,9 +607,10 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements HomeState {
-  const factory Success({required final List<Course> courses}) = _$SuccessImpl;
+  const factory Success({required final List<Programm> programms}) =
+      _$SuccessImpl;
 
-  List<Course> get courses;
+  List<Programm> get programms;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -654,7 +656,7 @@ class _$FailureImpl implements Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Course> courses) success,
+    required TResult Function(List<Programm> programms) success,
     required TResult Function() failure,
   }) {
     return failure();
@@ -665,7 +667,7 @@ class _$FailureImpl implements Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Course> courses)? success,
+    TResult? Function(List<Programm> programms)? success,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -676,7 +678,7 @@ class _$FailureImpl implements Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Course> courses)? success,
+    TResult Function(List<Programm> programms)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
