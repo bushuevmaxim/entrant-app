@@ -160,6 +160,7 @@ class MockProgrammsRepository implements IProgrammsRepository {
       electiveExams: [
         Exam(name: 'Физика'),
         Exam(name: 'Информатика'),
+        Exam(name: 'Химия'),
       ],
       companies: [
         Company(name: "Effective"),
