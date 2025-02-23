@@ -84,7 +84,9 @@ class ProgrammContent extends StatelessWidget {
                 const SizedBox(height: 16),
                 InfoSection(
                   title: 'Форма обучения:',
-                  content: programm.educationLevel,
+                  content: Subtitle(
+                    content: programm.educationLevel,
+                  ),
                 ),
                 ExamsList(
                   requiredExams: programm.requiredExams,

@@ -1420,7 +1420,7 @@ Company _$CompanyFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Company {
   String get name => throw _privateConstructorUsedError;
-  String? get logo => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1432,7 +1432,7 @@ abstract class $CompanyCopyWith<$Res> {
   factory $CompanyCopyWith(Company value, $Res Function(Company) then) =
       _$CompanyCopyWithImpl<$Res, Company>;
   @useResult
-  $Res call({String name, String? logo});
+  $Res call({String name, String? imageUrl});
 }
 
 /// @nodoc
@@ -1449,16 +1449,16 @@ class _$CompanyCopyWithImpl<$Res, $Val extends Company>
   @override
   $Res call({
     Object? name = null,
-    Object? logo = freezed,
+    Object? imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      logo: freezed == logo
-          ? _value.logo
-          : logo // ignore: cast_nullable_to_non_nullable
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1471,7 +1471,7 @@ abstract class _$$CompanyImplCopyWith<$Res> implements $CompanyCopyWith<$Res> {
       __$$CompanyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String? logo});
+  $Res call({String name, String? imageUrl});
 }
 
 /// @nodoc
@@ -1486,16 +1486,16 @@ class __$$CompanyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? logo = freezed,
+    Object? imageUrl = freezed,
   }) {
     return _then(_$CompanyImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      logo: freezed == logo
-          ? _value.logo
-          : logo // ignore: cast_nullable_to_non_nullable
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1504,7 +1504,7 @@ class __$$CompanyImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CompanyImpl implements _Company {
-  const _$CompanyImpl({required this.name, this.logo});
+  const _$CompanyImpl({required this.name, this.imageUrl});
 
   factory _$CompanyImpl.fromJson(Map<String, dynamic> json) =>
       _$$CompanyImplFromJson(json);
@@ -1512,11 +1512,11 @@ class _$CompanyImpl implements _Company {
   @override
   final String name;
   @override
-  final String? logo;
+  final String? imageUrl;
 
   @override
   String toString() {
-    return 'Company(name: $name, logo: $logo)';
+    return 'Company(name: $name, imageUrl: $imageUrl)';
   }
 
   @override
@@ -1525,12 +1525,13 @@ class _$CompanyImpl implements _Company {
         (other.runtimeType == runtimeType &&
             other is _$CompanyImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.logo, logo) || other.logo == logo));
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, logo);
+  int get hashCode => Object.hash(runtimeType, name, imageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -1547,7 +1548,7 @@ class _$CompanyImpl implements _Company {
 }
 
 abstract class _Company implements Company {
-  const factory _Company({required final String name, final String? logo}) =
+  const factory _Company({required final String name, final String? imageUrl}) =
       _$CompanyImpl;
 
   factory _Company.fromJson(Map<String, dynamic> json) = _$CompanyImpl.fromJson;
@@ -1555,7 +1556,7 @@ abstract class _Company implements Company {
   @override
   String get name;
   @override
-  String? get logo;
+  String? get imageUrl;
   @override
   @JsonKey(ignore: true)
   _$$CompanyImplCopyWith<_$CompanyImpl> get copyWith =>

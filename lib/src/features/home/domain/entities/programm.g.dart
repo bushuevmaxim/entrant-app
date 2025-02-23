@@ -130,13 +130,13 @@ Map<String, dynamic> _$$ExamImplToJson(_$ExamImpl instance) =>
 _$CompanyImpl _$$CompanyImplFromJson(Map<String, dynamic> json) =>
     _$CompanyImpl(
       name: json['name'] as String,
-      logo: json['logo'] as String?,
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic> _$$CompanyImplToJson(_$CompanyImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'logo': instance.logo,
+      'imageUrl': instance.imageUrl,
     };
 
 _$GraduateImpl _$$GraduateImplFromJson(Map<String, dynamic> json) =>

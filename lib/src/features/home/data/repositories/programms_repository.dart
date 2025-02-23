@@ -163,7 +163,21 @@ class MockProgrammsRepository implements IProgrammsRepository {
         Exam(name: 'Химия'),
       ],
       companies: [
-        Company(name: "Effective"),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+        ),
         Company(name: "7bits"),
       ],
       graduates: [

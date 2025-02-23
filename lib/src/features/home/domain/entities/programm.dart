@@ -93,7 +93,7 @@ class Exam with _$Exam {
 class Company with _$Company {
   const factory Company({
     required String name,
-    String? logo,
+    String? imageUrl,
   }) = _Company;
 
   factory Company.fromJson(Map<String, Object?> json) =>
