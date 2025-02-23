@@ -7,6 +7,7 @@ import 'bloc/detailed_programm_bloc.dart';
 import 'widgets/info_section.dart';
 import 'widgets/exams_list.dart';
 import 'widgets/programm_name.dart';
+import 'widgets/programm_code.dart';
 import 'widgets/screen_title.dart';
 
 class DetailedProgrammPage extends StatelessWidget {
@@ -73,10 +74,12 @@ class ProgrammContent extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                ProgrammCode(code: programm.code),
+                const SizedBox(height: 16),
                 ProgrammName(name: programm.name),
                 const SizedBox(height: 16),
                 InfoSection(
