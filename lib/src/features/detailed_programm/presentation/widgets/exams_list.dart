@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pmfi_entrant_app/src/features/detailed_programm/presentation/widgets/info_section.dart';
 import 'package:pmfi_entrant_app/src/features/home/domain/entities/programm.dart';
 
 class ExamsList extends StatelessWidget {
@@ -13,27 +14,21 @@ class ExamsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Экзамены для поступления:',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: (requiredExams + electiveExams)
-              .map(
-                (exam) => _ExamItem(
-                  name: exam.name,
-                  isRequired: requiredExams.contains(exam),
-                ),
-              )
-              .toList(),
-        ),
-      ],
+    return InfoSection(
+      title: 'Экзамены для поступления',
+      content: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: (requiredExams + electiveExams)
+            .map(
+              (exam) => _ExamItem(
+                name: exam.name,
+                isRequired: requiredExams.contains(exam),
+              ),
+            )
+            .toList(),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
     );
   }
 }

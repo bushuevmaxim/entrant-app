@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pmfi_entrant_app/src/features/detailed_programm/presentation/widgets/graduates_list.dart';
 import 'package:pmfi_entrant_app/src/features/home/domain/entities/programm.dart';
 
 import '../../home/domain/repositories/programms_repository.dart';
@@ -65,12 +66,13 @@ class ProgrammContent extends StatelessWidget {
         SliverAppBar(
           automaticallyImplyLeading: false,
           centerTitle: false,
+          pinned: true,
           titleSpacing: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: const Text('Направления ', textAlign: TextAlign.start),
+          title: const Text('Направления', textAlign: TextAlign.start),
         ),
         SliverToBoxAdapter(
           child: Padding(
@@ -79,21 +81,33 @@ class ProgrammContent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ProgrammCode(code: programm.code),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12.0),
                 ProgrammName(name: programm.name),
-                const SizedBox(height: 16),
-                InfoSection(
-                  title: 'Форма обучения:',
-                  content: Subtitle(
-                    content: programm.educationLevel,
-                  ),
-                ),
-                ExamsList(
-                  requiredExams: programm.requiredExams,
-                  electiveExams: programm.electiveExams,
-                ),
               ],
             ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: InfoSection(
+            title: 'Форма обучения',
+            content: Subtitle(
+              content: programm.educationLevel,
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: ExamsList(
+            requiredExams: programm.requiredExams,
+            electiveExams: programm.electiveExams,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: InfoSection(
+            title: 'Выпускники',
+            content: GraduatesList(
+              graduates: programm.graduates,
+            ),
+            contentPadding: EdgeInsets.zero,
           ),
         ),
       ],

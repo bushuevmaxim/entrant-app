@@ -4,29 +4,40 @@ class InfoSection extends StatelessWidget {
   final String title;
   final Widget content;
 
+  final EdgeInsetsGeometry contentPadding;
+
   const InfoSection({
     super.key,
     required this.title,
     required this.content,
+    this.contentPadding = const EdgeInsets.symmetric(horizontal: 16.0),
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(
+        vertical: 8.0,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
             ),
           ),
           const SizedBox(height: 4),
-          content,
+          Padding(
+            padding: contentPadding,
+            child: content,
+          ),
         ],
       ),
     );
