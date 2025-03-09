@@ -9,7 +9,7 @@ import 'widgets/info_section.dart';
 import 'widgets/exams_list.dart';
 import 'widgets/programm_name.dart';
 import 'widgets/programm_code.dart';
-import 'widgets/screen_title.dart';
+import 'widgets/companies_grid.dart';
 
 class DetailedProgrammPage extends StatelessWidget {
   final String programmId;
@@ -100,6 +100,20 @@ class ProgrammContent extends StatelessWidget {
               graduates: programm.graduates,
             ),
             contentPadding: EdgeInsets.zero,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: InfoSectionTitle(
+              title: 'Места прохождения практики',
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.all(16.0),
+          sliver: CompaniesGrid(
+            companies: programm.companies,
           ),
         ),
       ],

@@ -24,14 +24,7 @@ class InfoSection extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
+            child: InfoSectionTitle(title: title),
           ),
           const SizedBox(height: 4),
           Padding(
@@ -39,6 +32,27 @@ class InfoSection extends StatelessWidget {
             child: content,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class InfoSectionTitle extends StatelessWidget {
+  const InfoSectionTitle({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
       ),
     );
   }

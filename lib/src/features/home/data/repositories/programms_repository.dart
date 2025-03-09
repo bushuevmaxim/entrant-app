@@ -166,17 +166,47 @@ class MockProgrammsRepository implements IProgrammsRepository {
         Company(
           name: "Effective",
           imageUrl:
-              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
         ),
         Company(
           name: "Effective",
           imageUrl:
-              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
         ),
         Company(
           name: "Effective",
           imageUrl:
-              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcareer.habr.com%2Fcompanies%2Feffective-band&psig=AOvVaw06Z8vWtBCsseoQNAqWZB4U&ust=1740408610033000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjCz7mF2osDFQAAAAAdAAAAABAN',
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
+        ),
+        Company(
+          name: "Effective",
+          imageUrl:
+              'https://habrastorage.org/getpro/moikrug/uploads/user/100/089/630/1/avatar/medium_d41aa6172a5f33a720fbd7814c666edb.jpg',
         ),
         Company(name: "7bits"),
       ],
@@ -192,6 +222,8 @@ class MockProgrammsRepository implements IProgrammsRepository {
           secondName: "Doe",
           role: "Flutter-разработчик",
           companyName: "Effective",
+          photo:
+              'https://diqmdwhttngxa.cloudfront.net/23584/16254/katherine-beth-photography-san-diego-family-photographer-graduate-2023-2034-college-grad-sdsu-graduation-photos20220513_0681_960.jpg',
         ),
         Graduate(
           firstName: "John",
