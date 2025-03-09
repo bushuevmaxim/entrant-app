@@ -20,7 +20,7 @@ class DetailedProgrammAppBarContent extends StatelessWidget {
       children: [
         if (onBackPressed != null) ...[
           IconButton(
-            icon: const Icon(Icons.arrow_back, color: Color(0xFF9C6DFF)),
+            icon: const Icon(Icons.chevron_left, color: Color(0xFF9C6DFF)),
             onPressed: onBackPressed,
           ),
           const SizedBox(width: 8),

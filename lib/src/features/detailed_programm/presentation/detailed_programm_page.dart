@@ -63,16 +63,8 @@ class ProgrammContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverAppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: false,
-          pinned: true,
-          titleSpacing: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          title: const Text('Направления', textAlign: TextAlign.start),
+        ProgrammHeaderSliver(
+          programm: programm,
         ),
         SliverToBoxAdapter(
           child: Padding(
@@ -127,13 +119,51 @@ class ProgrammHeaderSliver extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
-      backgroundColor: Colors.white,
+      centerTitle: false,
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: DetailedProgrammAppBarContent(
         title: 'Направления',
         onBackPressed: () => Navigator.pop(context),
       ),
+    );
+  }
+}
+
+class DetailedProgrammAppBarContent extends StatelessWidget {
+  final String title;
+  final bool centerTitle;
+  final VoidCallback? onBackPressed;
+
+  const DetailedProgrammAppBarContent({
+    super.key,
+    required this.title,
+    this.centerTitle = false,
+    this.onBackPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment:
+          centerTitle ? MainAxisAlignment.center : MainAxisAlignment.start,
+      children: [
+        if (onBackPressed != null) ...[
+          IconButton(
+            icon: const Icon(Icons.chevron_left, color: Color(0xFF9C6DFF)),
+            onPressed: onBackPressed,
+          ),
+          const SizedBox(width: 8),
+        ],
+        Text(
+          title,
+          style: const TextStyle(
+            color: Color(0xFF9C6DFF),
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 }
