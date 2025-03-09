@@ -36,11 +36,8 @@ class HomePageView extends StatelessWidget {
           slivers: [
             SliverAppBar(
               title: Text(
-                'Кафедра ПМФИ',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium!
-                    .copyWith(fontWeight: FontWeight.bold),
+                'Главная',
+                style: Theme.of(context).textTheme.headlineSmall!,
               ),
             ),
             const SliverToBoxAdapter(
