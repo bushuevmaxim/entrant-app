@@ -157,7 +157,7 @@ class MockProgrammsRepository implements IProgrammsRepository {
           studyForms: [
             ProfileStudyForm(
               studyForm: StudyForm(
-                name: 'Заочно',
+                name: 'Очно',
               ),
               year: 2024,
               nPlacesBudget: 25,

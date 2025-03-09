@@ -64,6 +64,7 @@ class _ProfileCardState extends State<ProfileCard> {
                     (form) => ChoiceChip(
                       label: Text(form.studyForm.name),
                       selected: form == selectedStudyForm,
+                      showCheckmark: false,
                       onSelected: (selected) {
                         if (selected) {
                           setState(() {
