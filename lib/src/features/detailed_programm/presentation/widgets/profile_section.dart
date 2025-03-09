@@ -89,9 +89,74 @@ class _ProfileCardState extends State<ProfileCard> {
               passingScore: selectedStudyForm.passingScorePaid,
               minScore: selectedStudyForm.minScorePaid,
             ),
+            const SizedBox(height: 16.0),
+            CourseSection(courses: widget.profile.courses),
           ],
         ),
       ),
+    );
+  }
+}
+
+class CourseSection extends StatelessWidget {
+  final List<ProfileCourse> courses;
+
+  const CourseSection({
+    super.key,
+    required this.courses,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SectionTitle(title: 'Курсы'),
+        const SizedBox(height: 8.0),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
+          itemCount: courses.length,
+          itemBuilder: (context, index) {
+            return Card(
+              margin: const EdgeInsets.only(bottom: 8.0),
+              child: ExpansionTile(
+                title: Text(
+                  '${index + 1} курс',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
+                leading: const Icon(Icons.school_sharp),
+                shape: const RoundedRectangleBorder(side: BorderSide.none),
+                childrenPadding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
+                children: courses[index]
+                    .disciplines
+                    .map(
+                      (discipline) => ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        leading: const Icon(
+                          Icons.circle,
+                          size: 8,
+                        ),
+                        title: Text(
+                          discipline.name,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
