@@ -22,19 +22,26 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: NavigationBar(
         selectedIndex: widget.navigationShell.currentIndex,
+        elevation: 3,
+        backgroundColor: colorScheme.surface,
+        indicatorColor: colorScheme.primaryContainer,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        animationDuration: const Duration(milliseconds: 300),
         destinations: const [
-          NavigationDestination(label: 'Главная', icon: Icon(Icons.home)),
           NavigationDestination(
-            label: 'Задать вопрос',
-            icon: Icon(Icons.question_answer),
+            label: 'Главная',
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home_rounded),
           ),
           NavigationDestination(
-            label: 'События',
-            icon: Icon(Icons.calendar_month),
+            label: 'Задать вопрос',
+            icon: Icon(Icons.question_answer_outlined),
+            selectedIcon: Icon(Icons.question_answer_rounded),
           ),
         ],
         onDestinationSelected: _goBranch,
