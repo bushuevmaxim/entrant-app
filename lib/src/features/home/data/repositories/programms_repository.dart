@@ -152,6 +152,69 @@ class MockProgrammsRepository implements IProgrammsRepository {
             ),
           ],
         ),
+        Profile(
+          name: 'Технологии больших данных',
+          studyForms: [
+            ProfileStudyForm(
+              studyForm: StudyForm(
+                name: 'Заочно',
+              ),
+              year: 2024,
+              nPlacesBudget: 25,
+              nPlacesPaid: 20,
+              costPerYear: 160000,
+              passingScoreBudget: 999,
+              passingScorePaid: 60,
+              minScorePaid: 40,
+            ),
+            ProfileStudyForm(
+              studyForm: StudyForm(
+                name: 'Заочно',
+              ),
+              year: 2024,
+              nPlacesBudget: 25,
+              nPlacesPaid: 20,
+              costPerYear: 160000,
+              passingScoreBudget: 70,
+              passingScorePaid: 60,
+              minScorePaid: 40,
+            ),
+          ],
+          courses: [
+            ProfileCourse(
+              disciplines: [
+                Discipline(
+                  name: 'Дискретная математика',
+                ),
+                Discipline(name: 'Алгебра'),
+              ],
+            ),
+            ProfileCourse(
+              disciplines: [
+                Discipline(
+                  name: 'NLP',
+                ),
+                Discipline(name: 'Алгебра'),
+              ],
+            ),
+            ProfileCourse(
+              disciplines: [
+                Discipline(
+                  name: 'Дискретная математика',
+                ),
+                Discipline(name: 'Алгебра'),
+              ],
+            ),
+            ProfileCourse(
+              disciplines: [
+                Discipline(
+                  name: 'Компьютерное зрение',
+                ),
+                Discipline(name: 'Алгебра'),
+              ],
+            ),
+          ],
+        ),
       ],
       requiredExams: [
         Exam(name: 'Математика'),

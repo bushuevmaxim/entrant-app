@@ -10,6 +10,7 @@ import 'widgets/exams_list.dart';
 import 'widgets/programm_name.dart';
 import 'widgets/programm_code.dart';
 import 'widgets/companies_grid.dart';
+import 'widgets/profile_section.dart';
 
 class DetailedProgrammPage extends StatelessWidget {
   final String programmId;
@@ -86,6 +87,9 @@ class ProgrammContent extends StatelessWidget {
               content: programm.educationLevel,
             ),
           ),
+        ),
+        ProfileSection(
+          profiles: programm.profiles,
         ),
         SliverToBoxAdapter(
           child: ExamsList(
