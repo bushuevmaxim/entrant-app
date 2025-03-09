@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../routing/routes.dart';
-import '../domain/repositories/courses_repository.dart';
+import '../domain/repositories/programms_repository.dart';
 import 'bloc/home_bloc.dart';
 import 'widgets/block_title.dart';
-import 'widgets/course_card.dart';
+import 'widgets/programm_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
       create: (context) => HomeBloc(
-        coursesRepository: context.read<ICoursesRepository>(),
+        programmsRepository: context.read<IProgrammsRepository>(),
       )..add(const HomeEvent.started()),
       child: const HomePageView(),
     );
@@ -53,15 +53,15 @@ class HomePageView extends StatelessWidget {
               sliver: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
                   return switch (state) {
-                    Success(:final courses) => SliverList.separated(
-                        itemCount: courses.length,
+                    Success(:final programms) => SliverList.separated(
+                        itemCount: programms.length,
                         itemBuilder: (context, index) {
-                          return CourseCard(
-                            course: courses.elementAt(index),
+                          return ProgrammCard(
+                            programm: programms.elementAt(index),
                             onTap: () {
                               context.go(
-                                Routes.courseWithId(
-                                  courses.elementAt(index).id,
+                                Routes.programmWithId(
+                                  programms.elementAt(index).id,
                                 ),
                               );
                             },
