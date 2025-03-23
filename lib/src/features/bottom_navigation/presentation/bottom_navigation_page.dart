@@ -39,9 +39,9 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             selectedIcon: Icon(Icons.home_rounded),
           ),
           NavigationDestination(
-            label: 'Задать вопрос',
-            icon: Icon(Icons.question_answer_outlined),
-            selectedIcon: Icon(Icons.question_answer_rounded),
+            label: 'События',
+            icon: Icon(Icons.event_outlined),
+            selectedIcon: Icon(Icons.event_rounded),
           ),
         ],
         onDestinationSelected: _goBranch,

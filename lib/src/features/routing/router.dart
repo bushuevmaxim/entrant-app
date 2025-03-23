@@ -5,7 +5,6 @@ import 'package:pmfi_entrant_app/src/features/calendar_events/presentation/calen
 import 'package:pmfi_entrant_app/src/features/home/presentation/home_page.dart';
 import 'package:pmfi_entrant_app/src/features/map/presentation/map_page.dart';
 
-import '../chat/presentation/screens/chat_screen.dart';
 import '../detailed_programm/presentation/detailed_programm_page.dart';
 import 'routes.dart';
 
@@ -37,16 +36,6 @@ final GoRouter _router = GoRouter(
                   },
                 ),
               ],
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: Routes.virtualAssistant,
-              builder: (BuildContext context, GoRouterState state) {
-                return const ChatPage();
-              },
             ),
           ],
         ),
