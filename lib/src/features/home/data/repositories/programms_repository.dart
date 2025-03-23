@@ -75,20 +75,20 @@ class MockProgrammsRepository implements IProgrammsRepository {
       ],
       graduates: [
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
         ),
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
         ),
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
         ),
@@ -275,22 +275,22 @@ class MockProgrammsRepository implements IProgrammsRepository {
       ],
       graduates: [
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
         ),
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
           photo:
               'https://diqmdwhttngxa.cloudfront.net/23584/16254/katherine-beth-photography-san-diego-family-photographer-graduate-2023-2034-college-grad-sdsu-graduation-photos20220513_0681_960.jpg',
         ),
         Graduate(
-          firstName: "John",
-          secondName: "Doe",
+          firstName: "Максим",
+          secondName: "Бушуев",
           role: "Flutter-разработчик",
           companyName: "Effective",
         ),
