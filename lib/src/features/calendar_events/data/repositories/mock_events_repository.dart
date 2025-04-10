@@ -16,6 +16,7 @@ class MockEventsRepository implements IEventsRepository {
             'Приглашаем всех желающих познакомиться с нашим университетом!',
         link: 'https://omgtu.ru/',
         date: DateTime.now().add(const Duration(days: 5)),
+        shouldNotify: true,
       ),
       Event(
         name: 'День открытых дверей',

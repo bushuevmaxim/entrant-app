@@ -11,6 +11,7 @@ _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
       description: json['description'] as String,
       date: DateTime.parse(json['date'] as String),
       link: json['link'] as String,
+      shouldNotify: json['shouldNotify'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
@@ -19,4 +20,5 @@ Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
       'description': instance.description,
       'date': instance.date.toIso8601String(),
       'link': instance.link,
+      'shouldNotify': instance.shouldNotify,
     };

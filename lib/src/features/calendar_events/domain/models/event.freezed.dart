@@ -24,6 +24,7 @@ mixin _$Event {
   String get description => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
+  bool get shouldNotify => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,12 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
-  $Res call({String name, String description, DateTime date, String link});
+  $Res call(
+      {String name,
+      String description,
+      DateTime date,
+      String link,
+      bool shouldNotify});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? description = null,
     Object? date = null,
     Object? link = null,
+    Object? shouldNotify = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -73,6 +80,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String,
+      shouldNotify: null == shouldNotify
+          ? _value.shouldNotify
+          : shouldNotify // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -84,7 +95,12 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$EventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String description, DateTime date, String link});
+  $Res call(
+      {String name,
+      String description,
+      DateTime date,
+      String link,
+      bool shouldNotify});
 }
 
 /// @nodoc
@@ -102,6 +118,7 @@ class __$$EventImplCopyWithImpl<$Res>
     Object? description = null,
     Object? date = null,
     Object? link = null,
+    Object? shouldNotify = null,
   }) {
     return _then(_$EventImpl(
       name: null == name
@@ -120,6 +137,10 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String,
+      shouldNotify: null == shouldNotify
+          ? _value.shouldNotify
+          : shouldNotify // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -131,7 +152,8 @@ class _$EventImpl implements _Event {
       {required this.name,
       required this.description,
       required this.date,
-      required this.link});
+      required this.link,
+      this.shouldNotify = false});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventImplFromJson(json);
@@ -144,10 +166,13 @@ class _$EventImpl implements _Event {
   final DateTime date;
   @override
   final String link;
+  @override
+  @JsonKey()
+  final bool shouldNotify;
 
   @override
   String toString() {
-    return 'Event(name: $name, description: $description, date: $date, link: $link)';
+    return 'Event(name: $name, description: $description, date: $date, link: $link, shouldNotify: $shouldNotify)';
   }
 
   @override
@@ -159,12 +184,15 @@ class _$EventImpl implements _Event {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.shouldNotify, shouldNotify) ||
+                other.shouldNotify == shouldNotify));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, date, link);
+  int get hashCode =>
+      Object.hash(runtimeType, name, description, date, link, shouldNotify);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +213,8 @@ abstract class _Event implements Event {
       {required final String name,
       required final String description,
       required final DateTime date,
-      required final String link}) = _$EventImpl;
+      required final String link,
+      final bool shouldNotify}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
@@ -197,6 +226,8 @@ abstract class _Event implements Event {
   DateTime get date;
   @override
   String get link;
+  @override
+  bool get shouldNotify;
   @override
   @JsonKey(ignore: true)
   _$$EventImplCopyWith<_$EventImpl> get copyWith =>

@@ -10,6 +10,7 @@ class Event with _$Event {
     required String description,
     required DateTime date,
     required String link,
+    @Default(false) bool shouldNotify,
   }) = _Event;
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

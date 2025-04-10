@@ -3,10 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../domain/models/event.dart';
 
 class EventCard extends StatelessWidget {
-  const EventCard({
-    required this.event,
-    super.key,
-  });
+  const EventCard({required this.event, super.key});
 
   final Event event;
 
@@ -15,9 +12,7 @@ class EventCard extends StatelessWidget {
     return Material(
       child: DecoratedBox(
         decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey,
-          ),
+          border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: ListTile(
@@ -75,13 +70,16 @@ class EventCard extends StatelessWidget {
                           child: const Text('Подробнее'),
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      FilledButton(
-                        onPressed: () {
-                          // TODO: Implement Telegram reminder
-                        },
-                        child: const Icon(Icons.notifications),
-                      ),
+
+                      if (event.shouldNotify) ...[
+                        const SizedBox(width: 8),
+                        FilledButton(
+                          onPressed: () {
+                            // TODO: Implement Telegram reminder
+                          },
+                          child: const Icon(Icons.notifications),
+                        ),
+                      ],
                     ],
                   ),
                 ),
