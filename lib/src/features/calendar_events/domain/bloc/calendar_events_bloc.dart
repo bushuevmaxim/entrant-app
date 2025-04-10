@@ -16,11 +16,12 @@ class CalendarEventsBloc
 
   CalendarEventsBloc({required IEventsRepository eventsRepository})
       : _eventsRepository = eventsRepository,
-        super(const CalendarEventsState()) {
+        super(const CalendarEventsState(isLoading: true)) {
     on<_LoadEvents>(
       _onLoadEvents,
-      transformer: (events, mapper) =>
-          events.debounceTime(const Duration(milliseconds: 300)).distinct(),
+      transformer: (events, mapper) => events
+          .debounceTime(const Duration(milliseconds: 300))
+          .switchMap(mapper),
     );
   }
 
