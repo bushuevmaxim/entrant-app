@@ -1,0 +1,27 @@
+{
+  "@@locale": "en",
+  "appTitle": "Приложение для абитуриентов ПМиФИ",
+  "courses": "Курсы",
+  "course": "{number} курс",
+  "@course": {
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "1",
+        "description": "The course number"
+      }
+    }
+  },
+  "calendarEvents": "Календарь событий",
+  "emptyEvents": "События не найдены",
+  "eventsPage": "Cобытия",
+  "mainPage": "Главная",
+  "trainingAreas": "Направления подготовки",
+  "somethingWentWrong": "Что-то пошло нет так...",
+  "error": "Произошла ошибка",
+  "educationForm": "Форма обучения",
+  "profiles": "Профили",
+  "graduates": "Выпускники",
+  "practiceLocations": "Места прохождения практики",
+  "directions": "Направления"
+}

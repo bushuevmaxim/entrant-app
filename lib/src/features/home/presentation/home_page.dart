@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pmfi_entrant_app/l10n/extensions.dart';
 
 import '../../routing/routes.dart';
 import '../domain/repositories/programms_repository.dart';
@@ -14,18 +15,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (context) => HomeBloc(
-        programmsRepository: context.read<IProgrammsRepository>(),
-      )..add(const HomeEvent.started()),
+      create:
+          (context) => HomeBloc(
+            programmsRepository: context.read<IProgrammsRepository>(),
+          )..add(const HomeEvent.started()),
       child: const HomePageView(),
     );
   }
 }
 
 class HomePageView extends StatelessWidget {
-  const HomePageView({
-    super.key,
-  });
+  const HomePageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +36,12 @@ class HomePageView extends StatelessWidget {
           slivers: [
             SliverAppBar(
               title: Text(
-                'Главная',
+                context.l10n.mainPage,
                 style: Theme.of(context).textTheme.headlineSmall!,
               ),
             ),
-            const SliverToBoxAdapter(
-              child: HomeBlockTitle(
-                title: 'Направления подготовки',
-              ),
+            SliverToBoxAdapter(
+              child: HomeBlockTitle(title: context.l10n.trainingAreas),
             ),
             SliverPadding(
               padding: const EdgeInsetsDirectional.symmetric(vertical: 12.0),
@@ -51,41 +49,35 @@ class HomePageView extends StatelessWidget {
                 builder: (context, state) {
                   return switch (state) {
                     Success(:final programms) => SliverList.separated(
-                        itemCount: programms.length,
-                        itemBuilder: (context, index) {
-                          return ProgrammCard(
-                            programm: programms.elementAt(index),
-                            onTap: () {
-                              context.go(
-                                Routes.programmWithId(
-                                  programms.elementAt(index).id,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, int index) {
-                          return const SizedBox(
-                            height: 12,
-                          );
-                        },
-                      ),
+                      itemCount: programms.length,
+                      itemBuilder: (context, index) {
+                        return ProgrammCard(
+                          programm: programms.elementAt(index),
+                          onTap: () {
+                            context.go(
+                              Routes.programmWithId(
+                                programms.elementAt(index).id,
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const SizedBox(height: 12);
+                      },
+                    ),
                     Loading() => const SliverFillRemaining(
-                        child: Center(
-                          child: CircularProgressIndicator(),
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                    _ => SliverFillRemaining(
+                      child: Center(
+                        child: Text(
+                          context.l10n.somethingWentWrong,
+                          style: Theme.of(context).textTheme.bodyLarge!
+                              .copyWith(fontWeight: FontWeight.w500),
                         ),
                       ),
-                    _ => SliverFillRemaining(
-                        child: Center(
-                          child: Text(
-                            'Что-то пошло нет так...',
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                      )
+                    ),
                   };
                 },
               ),

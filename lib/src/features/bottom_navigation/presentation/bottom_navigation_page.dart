@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pmfi_entrant_app/l10n/extensions.dart';
 
 class BottomNavigationPage extends StatefulWidget {
-  const BottomNavigationPage({
-    Key? key,
-    required this.navigationShell,
-  }) : super(key: key ?? const ValueKey('BottomNavigationPage'));
+  const BottomNavigationPage({Key? key, required this.navigationShell})
+    : super(key: key ?? const ValueKey('BottomNavigationPage'));
   final StatefulNavigationShell navigationShell;
 
   @override
@@ -32,16 +31,16 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         indicatorColor: colorScheme.primaryContainer,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         animationDuration: const Duration(milliseconds: 300),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            label: 'Главная',
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home_rounded),
+            label: context.l10n.mainPage,
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home_rounded),
           ),
           NavigationDestination(
-            label: 'События',
-            icon: Icon(Icons.event_outlined),
-            selectedIcon: Icon(Icons.event_rounded),
+            label: context.l10n.eventsPage,
+            icon: const Icon(Icons.event_outlined),
+            selectedIcon: const Icon(Icons.event_rounded),
           ),
         ],
         onDestinationSelected: _goBranch,

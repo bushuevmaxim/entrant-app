@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pmfi_entrant_app/l10n/extensions.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../domain/bloc/calendar_events_bloc.dart';
 import '../domain/models/event.dart';
@@ -11,13 +12,10 @@ class CalendarEventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CalendarEventsBloc(
-        eventsRepository: context.read(),
-      )..add(
-          CalendarEventsEvent.loadEvents(
-            selectedMonth: kToday,
-          ),
-        ),
+      create:
+          (context) =>
+              CalendarEventsBloc(eventsRepository: context.read())
+                ..add(CalendarEventsEvent.loadEvents(selectedMonth: kToday)),
       child: const CalendarEventsView(),
     );
   }
@@ -50,9 +48,7 @@ class _CalendarEventsViewState extends State<CalendarEventsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Календарь событий'),
-      ),
+      appBar: AppBar(title: Text(context.l10n.calendarEvents)),
       body: Column(
         children: [
           BlocBuilder<CalendarEventsBloc, CalendarEventsState>(
@@ -70,25 +66,22 @@ class _CalendarEventsViewState extends State<CalendarEventsView> {
                     ),
                     headerStyle: const HeaderStyle(formatButtonVisible: false),
                     eventLoader: (day) {
-                      final date = DateTime(
-                        day.year,
-                        day.month,
-                        day.day,
-                      );
+                      final date = DateTime(day.year, day.month, day.day);
                       final events = state.events[date] ?? [];
                       return events;
                     },
                     onPageChanged: (focusedDay) {
                       _selectedDayNotifier.value = focusedDay;
                       context.read<CalendarEventsBloc>().add(
-                            CalendarEventsEvent.loadEvents(
-                              selectedMonth: focusedDay,
-                            ),
-                          );
+                        CalendarEventsEvent.loadEvents(
+                          selectedMonth: focusedDay,
+                        ),
+                      );
                     },
                     onDaySelected: (selectedDay, focusedDay) {
                       _selectedDayNotifier.value = selectedDay;
                     },
+                    locale: Localizations.localeOf(context).toString(),
                   );
                 },
               );
@@ -99,11 +92,12 @@ class _CalendarEventsViewState extends State<CalendarEventsView> {
             child: BlocBuilder<CalendarEventsBloc, CalendarEventsState>(
               builder: (context, state) {
                 return switch (state) {
-                  CalendarEventsState(isLoading: true) =>
-                    const Center(child: CircularProgressIndicator()),
+                  CalendarEventsState(isLoading: true) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
                   CalendarEventsState(error: final error?) => Center(
-                      child: Text('Error: $error'),
-                    ),
+                    child: Text(context.l10n.somethingWentWrong),
+                  ),
                   CalendarEventsState(events: final events) =>
                     ValueListenableBuilder(
                       valueListenable: _selectedDayNotifier,
@@ -116,22 +110,20 @@ class _CalendarEventsViewState extends State<CalendarEventsView> {
                         final dayEvents = events[date] ?? [];
 
                         if (dayEvents.isEmpty) {
-                          return const Center(
-                            child: Text('События не найдены'),
-                          );
+                          return Center(child: Text(context.l10n.emptyEvents));
                         }
 
                         return ListView.separated(
                           padding: const EdgeInsets.all(16),
                           itemCount: dayEvents.length,
-                          separatorBuilder: (context, index) =>
-                              const SizedBox(height: 8),
+                          separatorBuilder:
+                              (context, index) => const SizedBox(height: 8),
                           itemBuilder: (context, index) {
                             return EventCard(event: dayEvents.elementAt(index));
                           },
                         );
                       },
-                    )
+                    ),
                 };
               },
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pmfi_entrant_app/l10n/extensions.dart';
 import 'package:pmfi_entrant_app/src/features/detailed_programm/presentation/widgets/graduates_list.dart';
 import 'package:pmfi_entrant_app/src/features/home/domain/entities/programm.dart';
 
@@ -15,20 +16,16 @@ import 'widgets/profile_section.dart';
 class DetailedProgrammPage extends StatelessWidget {
   final String programmId;
 
-  const DetailedProgrammPage({
-    super.key,
-    required this.programmId,
-  });
+  const DetailedProgrammPage({super.key, required this.programmId});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DetailedProgrammBloc(
-        programmRepository: context.read<IProgrammsRepository>(),
-        programmId: programmId,
-      )..add(
-          const DetailedProgrammEvent.started(),
-        ),
+      create:
+          (context) => DetailedProgrammBloc(
+            programmRepository: context.read<IProgrammsRepository>(),
+            programmId: programmId,
+          )..add(const DetailedProgrammEvent.started()),
       child: const DetailedProgrammView(),
     );
   }
@@ -45,9 +42,10 @@ class DetailedProgrammView extends StatelessWidget {
           return switch (state) {
             Initial() => const Center(child: CircularProgressIndicator()),
             Loading() => const Center(child: CircularProgressIndicator()),
-            Success(programm: final programm) =>
-              ProgrammContent(programm: programm),
-            Failure() => const Center(child: Text('Error occurred')),
+            Success(programm: final programm) => ProgrammContent(
+              programm: programm,
+            ),
+            Failure() => Center(child: Text(context.l10n.error)),
           };
         },
       ),
@@ -64,9 +62,7 @@ class ProgrammContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        ProgrammHeaderSliver(
-          programm: programm,
-        ),
+        ProgrammHeaderSliver(programm: programm),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -82,23 +78,20 @@ class ProgrammContent extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: InfoSection(
-            title: 'Форма обучения',
-            content: Subtitle(
-              content: programm.educationLevel,
-            ),
+            title: context.l10n.educationForm,
+            content: Subtitle(content: programm.educationLevel),
           ),
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: InfoSectionTitle(
-              title: 'Профили',
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
             ),
+            child: InfoSectionTitle(title: context.l10n.profiles),
           ),
         ),
-        ProfileSection(
-          profiles: programm.profiles,
-        ),
+        ProfileSection(profiles: programm.profiles),
         SliverToBoxAdapter(
           child: ExamsList(
             requiredExams: programm.requiredExams,
@@ -107,26 +100,20 @@ class ProgrammContent extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: InfoSection(
-            title: 'Выпускники',
-            content: GraduatesList(
-              graduates: programm.graduates,
-            ),
+            title: context.l10n.graduates,
+            content: GraduatesList(graduates: programm.graduates),
             contentPadding: EdgeInsets.zero,
           ),
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: InfoSectionTitle(
-              title: 'Места прохождения практики',
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: InfoSectionTitle(title: context.l10n.practiceLocations),
           ),
         ),
         SliverPadding(
           padding: const EdgeInsets.all(16.0),
-          sliver: CompaniesGrid(
-            companies: programm.companies,
-          ),
+          sliver: CompaniesGrid(companies: programm.companies),
         ),
       ],
     );
@@ -136,10 +123,7 @@ class ProgrammContent extends StatelessWidget {
 class ProgrammHeaderSliver extends StatelessWidget {
   final Programm programm;
 
-  const ProgrammHeaderSliver({
-    super.key,
-    required this.programm,
-  });
+  const ProgrammHeaderSliver({super.key, required this.programm});
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +133,7 @@ class ProgrammHeaderSliver extends StatelessWidget {
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: DetailedProgrammAppBarContent(
-        title: 'Направления',
+        title: context.l10n.directions,
         onBackPressed: () => Navigator.pop(context),
       ),
     );
