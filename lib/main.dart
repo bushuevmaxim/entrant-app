@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:pmfi_entrant_app/src/features/app/presentation/app.dart';
 
 import 'src/features/home/data/repositories/programms_repository.dart';
@@ -9,6 +11,10 @@ import 'src/features/calendar_events/domain/repositories/events_repository.dart'
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb) {
+    usePathUrlStrategy();
+  }
+
   runApp(
     MultiRepositoryProvider(
       providers: [
