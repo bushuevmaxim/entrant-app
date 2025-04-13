@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmfi_entrant_app/l10n/extensions.dart';
 
-import '../../routing/routes.dart';
+import '../../../navigation/routes.dart';
 import '../domain/repositories/programms_repository.dart';
 import 'bloc/home_bloc.dart';
 import 'widgets/block_title.dart';
