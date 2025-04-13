@@ -3,30 +3,23 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/programm.dart';
 
 class ProgrammCard extends StatelessWidget {
+  static const _borderRadius = BorderRadius.all(Radius.circular(20.0));
   final VoidCallback? onTap;
   final Programm programm;
 
-  const ProgrammCard({
-    super.key,
-    this.onTap,
-    required this.programm,
-  });
+  const ProgrammCard({super.key, this.onTap, required this.programm});
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints.tight(const Size.fromHeight(180)),
       child: InkWell(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20.0),
-        ),
+        borderRadius: _borderRadius,
         onTap: onTap,
         child: Ink(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20.0),
-            ),
+            borderRadius: _borderRadius,
             border: Border.all(
               color: Theme.of(context).colorScheme.primary,
               width: 1,
@@ -43,10 +36,9 @@ class ProgrammCard extends StatelessWidget {
                   children: [
                     DecoratedBox(
                       decoration: BoxDecoration(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.1),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.primary.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
@@ -56,13 +48,12 @@ class ProgrammCard extends StatelessWidget {
                         ),
                         child: Text(
                           programm.code,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.w500,
-                              ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
@@ -70,9 +61,9 @@ class ProgrammCard extends StatelessWidget {
                     Text(
                       programm.name,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            fontWeight: FontWeight.w600,
-                            height: 1.2,
-                          ),
+                        fontWeight: FontWeight.w600,
+                        height: 1.2,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -84,27 +75,27 @@ class ProgrammCard extends StatelessWidget {
                 bottom: 20.0,
                 child: Ink(
                   decoration: BoxDecoration(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .secondary
-                        .withOpacity(0.1),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .outline
-                          .withOpacity(0.5),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.outline.withValues(alpha: 0.1),
                     ),
                   ),
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     child: Text(
                       programm.educationLevel,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.onSurface,
-                          ),
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
                     ),
                   ),
                 ),

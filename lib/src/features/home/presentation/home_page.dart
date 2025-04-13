@@ -30,21 +30,22 @@ class HomePageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 16.0),
+      body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
-              title: Text(
-                context.l10n.mainPage,
-                style: Theme.of(context).textTheme.headlineSmall!,
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: 16.0,
+                ),
+                child: HomeBlockTitle(title: context.l10n.trainingAreas),
               ),
             ),
-            SliverToBoxAdapter(
-              child: HomeBlockTitle(title: context.l10n.trainingAreas),
-            ),
             SliverPadding(
-              padding: const EdgeInsetsDirectional.symmetric(vertical: 12.0),
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 12.0,
+                horizontal: 16.0,
+              ),
               sliver: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
                   return switch (state) {
