@@ -1,4 +1,2 @@
-/// No-op implementation for non-web platforms
-void configureApp() {
-  // Do nothing on non-web platforms
-}
+export 'platform_utils_native.dart'
+    if (dart.library.js) 'platform_utils_web.dart';

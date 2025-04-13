@@ -7,8 +7,7 @@ import 'src/features/home/data/repositories/programms_repository.dart';
 import 'src/features/home/domain/repositories/programms_repository.dart';
 import 'src/features/calendar_events/data/repositories/mock_events_repository.dart';
 import 'src/features/calendar_events/domain/repositories/events_repository.dart';
-import 'src/utils/platform_utils.dart'
-    if (kIsWeb) 'src/utils/platform_utils_web.dart';
+import 'src/utils/platform_utils.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
