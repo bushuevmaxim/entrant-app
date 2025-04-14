@@ -19,6 +19,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       routerConfig: router(),
       locale: L10n.defaultLocale,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF9394C7)),
+      ),
       supportedLocales: L10n.all,
       localizationsDelegates: const [
         AppLocalizations.delegate,
