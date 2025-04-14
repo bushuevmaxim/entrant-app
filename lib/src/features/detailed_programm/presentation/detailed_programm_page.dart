@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pmfi_entrant_app/l10n/extensions.dart';
-import 'package:pmfi_entrant_app/src/features/detailed_programm/presentation/widgets/graduates_list.dart';
-import 'package:pmfi_entrant_app/src/features/home/domain/entities/programm.dart';
 
+import '../../home/domain/entities/programm.dart';
 import '../../home/domain/repositories/programms_repository.dart';
 import 'bloc/detailed_programm_bloc.dart';
-import 'widgets/info_section.dart';
-import 'widgets/exams_list.dart';
-import 'widgets/programm_name.dart';
-import 'widgets/programm_code.dart';
-import 'widgets/companies_grid.dart';
-import 'widgets/profile_section.dart';
+import 'widgets/widgets.dart';
 
 class DetailedProgrammPage extends StatelessWidget {
   final String programmId;
@@ -40,7 +34,7 @@ class DetailedProgrammView extends StatelessWidget {
       body: BlocBuilder<DetailedProgrammBloc, DetailedProgrammState>(
         builder: (context, state) {
           return switch (state) {
-            Initial() => const Center(child: CircularProgressIndicator()),
+            Initial() ||
             Loading() => const Center(child: CircularProgressIndicator()),
             Success(programm: final programm) => ProgrammContent(
               programm: programm,
@@ -62,7 +56,16 @@ class ProgrammContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        ProgrammHeaderSliver(programm: programm),
+        SliverAppBar(
+          pinned: true,
+          centerTitle: false,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+          title: DetailedProgrammAppBarContent(
+            title: context.l10n.directions,
+            onBackPressed: () => Navigator.pop(context),
+          ),
+        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -120,26 +123,6 @@ class ProgrammContent extends StatelessWidget {
   }
 }
 
-class ProgrammHeaderSliver extends StatelessWidget {
-  final Programm programm;
-
-  const ProgrammHeaderSliver({super.key, required this.programm});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverAppBar(
-      pinned: true,
-      centerTitle: false,
-      automaticallyImplyLeading: false,
-      titleSpacing: 0,
-      title: DetailedProgrammAppBarContent(
-        title: context.l10n.directions,
-        onBackPressed: () => Navigator.pop(context),
-      ),
-    );
-  }
-}
-
 class DetailedProgrammAppBarContent extends StatelessWidget {
   final String title;
   final bool centerTitle;
@@ -160,15 +143,18 @@ class DetailedProgrammAppBarContent extends StatelessWidget {
       children: [
         if (onBackPressed != null) ...[
           IconButton(
-            icon: const Icon(Icons.chevron_left, color: Color(0xFF9C6DFF)),
+            icon: Icon(
+              Icons.chevron_left,
+              color: Theme.of(context).colorScheme.primary,
+            ),
             onPressed: onBackPressed,
           ),
           const SizedBox(width: 8),
         ],
         Text(
           title,
-          style: const TextStyle(
-            color: Color(0xFF9C6DFF),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),

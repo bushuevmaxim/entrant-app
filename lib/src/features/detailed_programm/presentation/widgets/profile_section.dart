@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pmfi_entrant_app/l10n/extensions.dart';
 import 'package:pmfi_entrant_app/src/features/home/domain/entities/programm.dart';
 
 class ProfileSection extends StatelessWidget {
   final List<Profile> profiles;
 
-  const ProfileSection({
-    super.key,
-    required this.profiles,
-  });
+  const ProfileSection({super.key, required this.profiles});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,9 @@ class ProfileSection extends StatelessWidget {
       itemBuilder: (context, index) {
         return ProfileCard(profile: profiles[index]);
       },
-      separatorBuilder: (context, index) => const SizedBox(height: 16.0),
+      separatorBuilder:
+          (context, index) =>
+              Divider(height: 2, color: Theme.of(context).dividerColor),
     );
   }
 }
@@ -24,10 +24,7 @@ class ProfileSection extends StatelessWidget {
 class ProfileCard extends StatefulWidget {
   final Profile profile;
 
-  const ProfileCard({
-    super.key,
-    required this.profile,
-  });
+  const ProfileCard({super.key, required this.profile});
 
   @override
   State<ProfileCard> createState() => _ProfileCardState();
@@ -44,56 +41,73 @@ class _ProfileCardState extends State<ProfileCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.profile.name,
-              style: Theme.of(context).textTheme.titleLarge,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+              border: Border.all(
+                color: Theme.of(context).dividerColor,
+                width: 1.5,
+              ),
             ),
-            const SizedBox(height: 16.0),
-            Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
-              children: widget.profile.studyForms
-                  .map(
-                    (form) => ChoiceChip(
-                      label: Text(form.studyForm.name),
-                      selected: form == selectedStudyForm,
-                      showCheckmark: false,
-                      onSelected: (selected) {
-                        if (selected) {
-                          setState(() {
-                            selectedStudyForm = form;
-                          });
-                        }
-                      },
-                    ),
-                  )
-                  .toList(),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.profile.name,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ),
-            const SizedBox(height: 16.0),
-            BudgetSection(
-              year: selectedStudyForm.year,
-              nPlaces: selectedStudyForm.nPlacesBudget!,
-              passingScore: selectedStudyForm.passingScoreBudget,
-            ),
-            const SizedBox(height: 16.0),
-            PaidSection(
-              year: selectedStudyForm.year,
-              nPlaces: selectedStudyForm.nPlacesPaid!,
-              costPerYear: selectedStudyForm.costPerYear,
-              passingScore: selectedStudyForm.passingScorePaid,
-              minScore: selectedStudyForm.minScorePaid,
-            ),
-            const SizedBox(height: 16.0),
-            CourseSection(courses: widget.profile.courses),
-          ],
-        ),
+          ),
+          const SizedBox(height: 16.0),
+          Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
+            children: [
+              if (widget.profile.studyForms.length > 1)
+                ...widget.profile.studyForms.map(
+                  (form) => ChoiceChip(
+                    label: Text(form.studyForm.name),
+                    selected: form == selectedStudyForm,
+                    selectedColor: Theme.of(context).focusColor,
+                    showCheckmark: false,
+                    onSelected: (selected) {
+                      if (selected) {
+                        setState(() {
+                          selectedStudyForm = form;
+                        });
+                      }
+                    },
+                  ),
+                )
+              else
+                Chip(
+                  label: Text(widget.profile.studyForms.first.studyForm.name),
+                  backgroundColor: Theme.of(context).focusColor,
+                  side: BorderSide.none,
+                ),
+            ],
+          ),
+          const SizedBox(height: 16.0),
+          BudgetSection(
+            year: selectedStudyForm.year,
+            nPlaces: selectedStudyForm.nPlacesBudget!,
+            passingScore: selectedStudyForm.passingScoreBudget,
+          ),
+          const SizedBox(height: 16.0),
+          PaidSection(
+            year: selectedStudyForm.year,
+            nPlaces: selectedStudyForm.nPlacesPaid!,
+            costPerYear: selectedStudyForm.costPerYear,
+            passingScore: selectedStudyForm.passingScorePaid,
+            minScore: selectedStudyForm.minScorePaid,
+          ),
+          const SizedBox(height: 16.0),
+          CourseSection(courses: widget.profile.courses),
+        ],
       ),
     );
   }
@@ -102,10 +116,7 @@ class _ProfileCardState extends State<ProfileCard> {
 class CourseSection extends StatelessWidget {
   final List<ProfileCourse> courses;
 
-  const CourseSection({
-    super.key,
-    required this.courses,
-  });
+  const CourseSection({super.key, required this.courses});
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +124,7 @@ class CourseSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SectionTitle(title: 'Курсы'),
+        SectionTitle(title: context.l10n.courses),
         const SizedBox(height: 8.0),
         ListView.builder(
           shrinkWrap: true,
@@ -121,39 +132,41 @@ class CourseSection extends StatelessWidget {
           padding: EdgeInsets.zero,
           itemCount: courses.length,
           itemBuilder: (context, index) {
-            return Card(
-              margin: const EdgeInsets.only(bottom: 8.0),
-              child: ExpansionTile(
-                title: Text(
-                  '${index + 1} курс',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
-                leading: const Icon(Icons.school_sharp),
-                shape: const RoundedRectangleBorder(side: BorderSide.none),
-                childrenPadding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 8.0,
-                ),
-                children: courses[index]
-                    .disciplines
-                    .map(
-                      (discipline) => ListTile(
-                        dense: true,
-                        contentPadding: EdgeInsets.zero,
-                        leading: const Icon(
-                          Icons.circle,
-                          size: 8,
-                        ),
-                        title: Text(
-                          discipline.name,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                    )
-                    .toList(),
+            return ExpansionTile(
+              title: Text(
+                context.l10n.course(index + 1),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
               ),
+              leading: const Icon(Icons.school_sharp),
+              collapsedShape: RoundedRectangleBorder(
+                side: BorderSide.none,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: BorderSide(color: Theme.of(context).primaryColor),
+              ),
+
+              childrenPadding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0,
+              ),
+              children:
+                  courses[index].disciplines
+                      .map(
+                        (discipline) => ListTile(
+                          dense: true,
+                          contentPadding: EdgeInsets.zero,
+                          leading: const Icon(Icons.circle, size: 8),
+                          title: Text(
+                            discipline.name,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      )
+                      .toList(),
             );
           },
         ),
@@ -165,17 +178,11 @@ class CourseSection extends StatelessWidget {
 class SectionTitle extends StatelessWidget {
   final String title;
 
-  const SectionTitle({
-    super.key,
-    required this.title,
-  });
+  const SectionTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: Theme.of(context).textTheme.titleMedium,
-    );
+    return Text(title, style: Theme.of(context).textTheme.titleMedium);
   }
 }
 
@@ -183,11 +190,7 @@ class InfoRow extends StatelessWidget {
   final String label;
   final String value;
 
-  const InfoRow({
-    super.key,
-    required this.label,
-    required this.value,
-  });
+  const InfoRow({super.key, required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -195,10 +198,7 @@ class InfoRow extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label),
-          Text(value),
-        ],
+        children: [Text(label), Text(value)],
       ),
     );
   }
