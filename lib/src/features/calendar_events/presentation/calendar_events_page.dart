@@ -61,12 +61,31 @@ class _CalendarEventsViewState extends State<CalendarEventsView> {
                       lastDay: _lastDay,
                       focusedDay: focusedDay,
                       selectedDayPredicate: (day) => isSameDay(day, focusedDay),
-                      calendarStyle: const CalendarStyle(
+                      calendarStyle: CalendarStyle(
                         outsideDaysVisible: false,
+                        markersMaxCount: 3,
+                        markerDecoration: BoxDecoration(
+                          color: Theme.of(context).hintColor,
+                          shape: BoxShape.circle,
+                        ),
+                        todayDecoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).primaryColor.withValues(alpha: 0.5),
+                          shape: BoxShape.circle,
+                        ),
+
+                        selectedDecoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).primaryColor.withValues(alpha: 0.8),
+                          shape: BoxShape.circle,
+                        ),
                       ),
                       headerStyle: const HeaderStyle(
                         formatButtonVisible: false,
                       ),
+
                       eventLoader: (day) {
                         final date = DateTime(day.year, day.month, day.day);
                         final events = state.events[date] ?? [];
