@@ -31,6 +31,15 @@ class DetailedProgrammView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: DetailedProgrammAppBarContent(
+          title: context.l10n.directions,
+          onBackPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: BlocBuilder<DetailedProgrammBloc, DetailedProgrammState>(
         builder: (context, state) {
           return switch (state) {
@@ -56,16 +65,6 @@ class ProgrammContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverAppBar(
-          pinned: true,
-          centerTitle: false,
-          automaticallyImplyLeading: false,
-          titleSpacing: 0,
-          title: DetailedProgrammAppBarContent(
-            title: context.l10n.directions,
-            onBackPressed: () => Navigator.pop(context),
-          ),
-        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
